@@ -1,0 +1,49 @@
+package codigo;
+
+import java_cup.runtime.Symbol;
+
+parser code
+{:
+    private Symbol s;
+    
+    public void syntax_error(Symbol s){
+        this.s = s;
+    }
+
+    public Symbol getS(){
+        return this.s;
+}
+:};
+
+terminal ST, CL, AL, CH, CPH, NW, WP, FT, EN, at, ms, ptc, et, ig, cm, pj, mai, mei, df, sw, vl, h, ph, If, Else, or, pa, pc, and, num, bi, ERROR;
+
+non terminal L, I, J, F, D, K, O, M, C, CO, S1, S2, N, T, R;
+
+start with L;
+
+L ::= 
+    I J F
+;
+J ::= 
+    D K
+;
+K ::=
+    O | M | O M
+;
+O ::= 
+    C | CO
+;
+C ::= 
+    S1 S2 N R T | 
+    S1 S2 N T
+;
+
+I ::= ST at If sw ig bi ptc et;
+D ::= CL ms If vl mai num and mei num pj ptc et;
+M ::= Else AL at ptc et;
+S1 ::= CH ms If h ig bi or h ig bi ptc et;
+S2 ::= CPH ms If ph ig bi or ph ig bi ptc et;
+N ::= NW ms If h ig bi and ph ig bi or h ig bi and ph ig bi or h ig bi and ph ig bi ptc et;
+R ::= WP at ptc et;
+T ::= FT ms ptc et | FT ms pa CL pc ptc et;
+F ::= EN at If sw ig bi ptc et;

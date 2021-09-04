@@ -1,0 +1,9 @@
+START *ifsw=bi;
+CHECKLEVEL +ifvl>=8&&<=10%;
+CHECKHUM +ifh=biorh=bi;
+CHECKPH +ifph=biorph=bi;
+NEEDWATER +ifh=bi&&ph=biorh=bi&&ph=biorh=bi&&ph=bi;
+WATERPLANTS *;
+FILLTANKS +(CHECKLEVEL);
+END *ifsw=bi;
+

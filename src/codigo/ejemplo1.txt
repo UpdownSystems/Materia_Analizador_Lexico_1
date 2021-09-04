@@ -1,0 +1,4 @@
+START *ifsw=bi;
+CHECKLEVEL +ifvl>=30&&<=60%;
+elseALERT *;
+END *ifsw=bi;
